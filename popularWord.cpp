@@ -19,11 +19,8 @@ string popular(string paragraph) {
 		word.push_back(paragraph[i]);
 	}
 	for (i = 0; i < set.size(); i++) {
-		counter = 1;
+		counter = 0;
 		for (j = 0; j < set.size(); j++) {
-			if (i == j) {
-				continue;
-			}
 			if (set[i] == set[j]) {
 				counter++;
 			}
