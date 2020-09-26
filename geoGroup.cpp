@@ -5,7 +5,7 @@ string geoGroup(People Group[]) {
     for (int i = 0; i < sizeof(Group); i++) {
         Cities.push_back(temp.assign(Group[i].Address.begin() + ((Group[i].Address).find(",")) + 2, (Group[i].Address).end()));
     }
-
+//https://stackoverflow.com/questions/20634743/remove-duplicate-strings-in-string-vector?rq=1
     sort(Cities.begin(), Cities.end());
     auto it = unique(Cities.begin(), Cities.end());
     Cities.erase(it, Cities.end());
