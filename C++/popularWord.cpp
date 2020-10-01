@@ -1,3 +1,7 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
 string popular(string paragraph) {
 	bool multiple = false;
 	vector<string> set;
@@ -7,6 +11,12 @@ string popular(string paragraph) {
 	int i, j;
 	string top;
 
+	//goes through the string to change all characters to lowercase
+	for_each(paragraph.begin(), paragraph.end(), [](char& c) {
+		c = tolower(c);
+		});
+	
+	// For loop goes through string and grabs each word, storing it in the vector named "set"
 	for (i = 0; i < paragraph.length(); i++) {
 		if (ispunct(paragraph[i])) {
 			continue;
@@ -17,7 +27,12 @@ string popular(string paragraph) {
 			continue;
 		}
 		word.push_back(paragraph[i]);
+		if (i == paragraph.length() - 1) {
+			set.push_back(word);
+		}
 	}
+	
+	// goes through the set vector and counts how many words exist within the paragraph
 	for (i = 0; i < set.size(); i++) {
 		counter = 0;
 		for (j = 0; j < set.size(); j++) {
